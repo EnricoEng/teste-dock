@@ -16,6 +16,5 @@ EXPOSE 5000
 
 CMD ["python", "app.py"]    
 
-build -t my-python-app .
 
- run -p 5000:5000 my-python-app
+run -p 5000:5000 my-python-app
