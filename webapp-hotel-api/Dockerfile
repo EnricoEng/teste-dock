@@ -16,3 +16,6 @@ EXPOSE 5000
 
 CMD ["python", "app.py"]    
 
+docker build -t my-python-app .
+
+docker run -p 5000:5000 my-python-app
