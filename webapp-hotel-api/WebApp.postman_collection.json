@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "76c5cbf1-df3b-4d38-933e-ff1e3a9b2346",
+		"name": "WebApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30572282"
+	},
+	"item": [
+		{
+			"name": "Criando uma Nova Reserva",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"cidade\": \"saoPaulo\",\n  \"hotel\": \"Hotel A\",\n  \"quarto\": \"simples\",\n  \"data\": \"2023-11-10\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/reservas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"reservas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtendo todas as reservas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/reservas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"reservas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizando uma Reserva Existente",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n  \"data\": \"2023-11-15\"\n}\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/reservas/5",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"reservas",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtendo Hotéis em uma Cidade Específica",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/hoteis/saoPaulo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"hoteis",
+						"saoPaulo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar uma reserva",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/reservas/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"reservas",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtendo uma Reserva Específica",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/reservas/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"reservas",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

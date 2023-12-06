@@ -1,0 +1,196 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API de Reserva de Hotéis",
+    "description": "API para gerenciar hotéis, quartos e reservas de hotéis."
+  },
+  "paths": {
+    "/hoteis/{cidade}": {
+      "get": {
+        "summary": "Obter Hotéis por Cidade",
+        "description": "Retorna a lista de hotéis em uma cidade específica.",
+        "parameters": [
+          {
+            "name": "cidade",
+            "in": "path",
+            "description": "Nome da cidade para a qual os hotéis devem ser recuperados.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de hotéis recuperada com sucesso",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Hotel"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reservas": {
+      "post": {
+        "summary": "Criar Reserva",
+        "description": "Cria uma nova reserva de hotel.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "reserva",
+            "description": "Dados da reserva a ser criada",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Reserva"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Reserva criada com sucesso",
+            "schema": {
+              "$ref": "#/definitions/Reserva"
+            }
+          }
+        }
+      }
+    },
+    "/reservas/{id}": {
+      "patch": {
+        "summary": "Atualizar Reserva",
+        "description": "Atualiza uma reserva existente com base no ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID da reserva a ser atualizada.",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Reserva atualizada com sucesso",
+            "schema": {
+              "$ref": "#/definitions/Reserva"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Excluir Reserva",
+        "description": "Exclui uma reserva com base no ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID da reserva a ser excluída.",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Reserva excluída com sucesso"
+          }
+        }
+      },
+      "get": {
+        "summary": "Obter Reserva por ID",
+        "description": "Retorna uma reserva com base no ID especificado.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID da reserva a ser recuperada.",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Reserva recuperada com sucesso",
+            "schema": {
+              "$ref": "#/definitions/Reserva"
+            }
+          }
+        }
+      }
+    },
+    "/reservas": {
+      "get": {
+        "summary": "Obter Todas as Reservas",
+        "description": "Retorna a lista de todas as reservas.",
+        "responses": {
+          "200": {
+            "description": "Lista de reservas recuperada com sucesso",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Reserva"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Hotel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "nome": {
+          "type": "string"
+        },
+        "cidade": {
+          "type": "string"
+        }
+      }
+    },
+    "Quarto": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "tipo": {
+          "type": "string"
+        },
+        "capacidade": {
+          "type": "integer"
+        },
+        "quarto": {
+          "type": "string"
+        },
+        "hotel_id": {
+          "type": "integer"
+        }
+      }
+    },
+    "Reserva": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "cidade": {
+          "type": "string"
+        },
+        "hotel": {
+          "type": "string"
+        },
+        "quarto": {
+          "type": "string"
+        },
+        "data": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
