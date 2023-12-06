@@ -7,7 +7,7 @@ RUN mkdir -p /app
 WORKDIR /app
 
 # Copiar os arquivos da aplicação para o diretório de trabalho
-COPY . /app
+COPY . /webapp/impl/app
 
 # Instalar as dependências da aplicação
 RUN pip install -r requirements.txt
